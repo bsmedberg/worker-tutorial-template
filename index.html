@@ -1,0 +1,51 @@
+<head>
+  <title>Parsing data on a Worker</title>
+
+  <style type="text/css">
+    #sample {
+      border: 1px solid #333;
+      padding: 4px;
+      background-color: #EEE;
+      color: black;
+    }
+    #os-table {
+      border: 1px solid black;
+    }
+  </style>
+<body>
+  <h1>Tutorial base: parsing data on a worker</h1>
+
+  <p>Your goal in this session is to take some complex data, parse
+    it, and fill in the table below to show how many Firefox users are
+    running Windows.
+
+  <p>The data is quite large, and so parsing it using a standard script
+    will cause significant browser hangs. Instead, you are expected
+    to parse it on a worker thread using a DOM Worker.</p>
+
+  <p>The data is available at http://analysis-output.telemetry.mozilla.org/stability-rollups/2015/20151128-active-weekly.csv.gz . Here is the top of that file:
+
+  <pre id="sample">buildversion,buildid,buildarchitecture,channel,os,osversion,osservicepackmajor,osservicepackminor,locale,activeexperimentid,activeexperimentbranch,country,active_days,active_users
+42.0,x86,release,Windows,6.1,1,0,de,,,DE,2,892926
+42.0,x86,release,Windows,6.0,2,0,en-US,,,US,6,104456
+42.0,x86,release,Windows,5.1,2,0,en-US,,,IN,6,70165
+42.0,x86,release,Windows,6.1,0,0,es-ES,,,CO,5,17070
+42.0,x86,release,Windows,6.1,1,0,de,,,DE,6,966485
+42.0,x86,release,Windows,10.0,0,0,ru,,,RU,1,49961
+42.0,x86,release,Windows,6.1,1,0,es-ES,,,ES,3,139424
+42.0,x86,release,Windows,6.1,0,0,ru,,,UA,7,41254
+42.0,x86,release,Windows,6.1,1,0,en-US,,,US,4,1144195
+42.0,x86,release,Windows,6.1,0,0,en-US,,,IN,3,113348</pre>
+
+  <h2>Firefox desktop users by Operating System</h2>
+
+  <table id="os-table">
+    <thead>
+      <tr>
+        <td>Operating System
+        <td>User Count
+    <tbody>
+      <!-- Fill in rows here using DOM methods-->
+  </table>
+
+  <script src="index.js"></script>
